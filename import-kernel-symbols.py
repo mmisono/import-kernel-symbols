@@ -53,7 +53,7 @@ def main():
             m = re.match(symbols, line)
             addr = m.group(1)
             name = m.group(2)
-            if dictionary.has_key(name):
+            if name in dictionary:
                 imported.append("#define IMPORT_SYMBOL_VALUE_FOR_%s (0x%sUL)" % (name, addr))
     generated = header.replace('IMPORT_SYMBOL_PROLOGUE', template % '\n'.join(imported))
 
